@@ -7,4 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#F7F9FE</color>
+    <color name="background2">#FFFDFA</color>
+    <color name="textColor">#FF000000</color>
+    <color name="borderColor">#DCDBDB</color>
+    <color name="borderColor2">#F0F7FB</color>
+    <color name="textColor2">#808080</color>
+    <color name="boxes">#E7E6E7</color>
+    <color name="button">#42A246</color>
+    <color name="material">#0353F0</color>
+    <color name="student">#F5F9FE</color>
+    <color name="card">#FBFBFC</color>
+    <color name="back">#ECF9F8</color>
+    <color name="profile_back">#EDF6FC</color>
+
+    <color name="background3">#F7F9FE</color>
 </resources>

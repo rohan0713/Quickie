@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent i = new Intent(MainActivity.this, home_page.class);
+                Intent i = new Intent(MainActivity.this, home.class);
                 startActivity(i);
                 finish();
 
             }
-        }, 5000);
+        }, 3000);
     }
 }

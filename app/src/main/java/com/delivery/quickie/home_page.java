@@ -18,11 +18,6 @@ public class home_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_page);
-        binding.press.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(home_page.this, "pressed", Toast.LENGTH_LONG).show();
-            }
-        });
+
     }
 }
