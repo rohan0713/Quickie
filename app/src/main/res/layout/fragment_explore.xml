@@ -1,14 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".exploreFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".exploreFragment" >
 
-</FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Hello! Rohan"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/pin"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/pin"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/name"
+                        app:tint="#F11B0C" />
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="New Delhi, India"
+                        android:textColor="#858585"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toEndOf="@id/pin"
+                        app:layout_constraintTop_toBottomOf="@id/name" />
+
+                    <LinearLayout
+                        android:id="@+id/layout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pin">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="4"
+                            android:background="@drawable/edittext_background"
+                            android:hint="Search food, groceries and restaurants"
+                            android:padding="10dp"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="15dp"
+                            android:backgroundTint="@color/button"
+                            android:text="Search"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/select"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:text="Select from your favourite cuisines"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layout1" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/cuisine_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/select" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/more"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:visibility="gone"
+                        app:cornerRadius="10dp"
+                        android:backgroundTint="@color/button"
+                        android:text="Check out more cuisines"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cuisine_recyclerview" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

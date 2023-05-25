@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.PagerSnapHelper;
@@ -14,23 +17,42 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.delivery.quickie.databinding.FragmentHomeBinding;
+import com.delivery.quickie.room.Repository;
+import com.delivery.quickie.room.foodViewModel;
+import com.delivery.quickie.room.food_items;
+import com.delivery.quickie.room.response;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class homeFragment extends Fragment {
 
 
+    FragmentHomeBinding binding;
+
+    private static Repository repository;
+    private static foodViewModel viewModel;
+    private foodAdapter foodAdapter;
+
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        FragmentHomeBinding binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home ,container,
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home ,container,
                 false);
-        View view = binding.getRoot();
+        view = binding.getRoot();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
         binding.recyclerview.setLayoutManager(layoutManager);
@@ -61,8 +83,39 @@ public class homeFragment extends Fragment {
             }
         }, 0, 3000);
 
+        List<food_items> list = new ArrayList<>();
+        foodAdapter = new foodAdapter(list);
         binding.foodRecyclerview.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        binding.foodRecyclerview.setAdapter(new foodAdapter());
+        repository = new Repository(requireActivity().getApplication());
+        viewModel = new ViewModelProvider(this).get(com.delivery.quickie.room.foodViewModel.class);
+
+        getMeals();
+        viewModel.getFoodList().observe(getViewLifecycleOwner(), new Observer<List<food_items>>() {
+            @Override
+            public void onChanged(List<food_items> list) {
+                binding.foodRecyclerview.setAdapter(foodAdapter);
+                foodAdapter.getList(list);
+            }
+        });
         return view;
+    }
+
+    private void getMeals() {
+
+        Call<response> call = Retrofit.getServices().meals("Indian");
+        call.enqueue(new Callback<response>() {
+            @Override
+            public void onResponse(Call<response> call, Response<response> response) {
+
+                List<food_items> list = response.body().getMeals();
+                repository.insert(list);
+            }
+
+            @Override
+            public void onFailure(Call<response> call, Throwable t) {
+                Toast.makeText(view.getContext(), "No Internet", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }

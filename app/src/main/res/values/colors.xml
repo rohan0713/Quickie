@@ -10,12 +10,12 @@
 
     <color name="background">#F7F9FE</color>
     <color name="background2">#FFFDFA</color>
-    <color name="textColor">#FF000000</color>
+    <color name="textColor">#73A9AD</color>
     <color name="borderColor">#DCDBDB</color>
-    <color name="borderColor2">#F0F7FB</color>
+    <color name="borderColor2">#DBDFAA</color>
     <color name="textColor2">#808080</color>
     <color name="boxes">#E7E6E7</color>
-    <color name="button">#42A246</color>
+    <color name="button">#4CAF50</color>
     <color name="material">#0353F0</color>
     <color name="student">#F5F9FE</color>
     <color name="card">#FBFBFC</color>
