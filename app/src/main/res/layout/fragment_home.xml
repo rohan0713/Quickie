@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout1" />
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             app:layout_constraintTop_toBottomOf="@id/layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -325,7 +325,7 @@
 
 
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

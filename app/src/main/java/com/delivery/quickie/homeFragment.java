@@ -42,7 +42,7 @@ public class homeFragment extends Fragment {
     FragmentHomeBinding binding;
 
     private static Repository repository;
-    private static foodViewModel viewModel;
+    private static foodViewModel viewModel; 
     private foodAdapter foodAdapter;
 
     View view;
