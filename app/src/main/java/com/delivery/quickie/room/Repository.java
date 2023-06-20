@@ -26,7 +26,7 @@ public class Repository {
     }
 
     public void insert(List<food_items> foodList){
-        new InsertAsyncTask(foodDatabase).execute(foodList);
+            new InsertAsyncTask(foodDatabase).execute(foodList);
     }
 
     static class InsertAsyncTask extends AsyncTask<List<food_items>, Void, Void>{

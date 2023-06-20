@@ -17,5 +17,4 @@ public interface foodDao {
     @Query("Select * from food")
     LiveData<List<food_items>> meals();
 
-
 }

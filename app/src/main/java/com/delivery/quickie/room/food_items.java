@@ -1,24 +1,27 @@
 package com.delivery.quickie.room;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "food")
 public class food_items {
 
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+//    @PrimaryKey(autoGenerate = true)
+//    public int id;
     public String strMeal;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String strMealThumb;
+    @PrimaryKey
+    @NonNull
     public String idMeal;
 
     public food_items(String strMeal, String strMealThumb, String idMeal) {

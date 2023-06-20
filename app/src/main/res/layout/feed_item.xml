@@ -31,7 +31,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Koimoi"
+                android:text="Voompla"
                 android:layout_toEndOf="@id/person"
                 android:layout_marginStart="10dp"
                 android:textSize="14sp"
