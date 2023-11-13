@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,10 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.delivery.quickie.room.food_items;
+import com.delivery.quickie.R;
+import com.delivery.quickie.data.food_items;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

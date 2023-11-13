@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.fragments;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.delivery.quickie.R;
+import com.delivery.quickie.ui.adapters.fragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class profileFragment extends Fragment {

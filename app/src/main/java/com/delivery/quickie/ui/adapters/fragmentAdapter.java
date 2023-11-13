@@ -1,10 +1,14 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.delivery.quickie.ui.fragments.reelFragment;
+import com.delivery.quickie.ui.fragments.tagFragment;
+import com.delivery.quickie.ui.fragments.postFragment;
 
 public class fragmentAdapter extends FragmentStateAdapter {
 

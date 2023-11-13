@@ -1,10 +1,7 @@
-package com.delivery.quickie;
+package com.delivery.quickie.network;
 
-import com.delivery.quickie.room.cResponse;
-import com.delivery.quickie.room.food_items;
-import com.delivery.quickie.room.response;
-
-import java.util.List;
+import com.delivery.quickie.data.cResponse;
+import com.delivery.quickie.data.response;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

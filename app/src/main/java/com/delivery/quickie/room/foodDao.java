@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.delivery.quickie.data.food_items;
+
 import java.util.List;
 
 @Dao

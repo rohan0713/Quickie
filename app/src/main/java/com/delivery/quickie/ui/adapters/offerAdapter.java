@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.delivery.quickie.R;
 
 public class offerAdapter extends RecyclerView.Adapter<offerAdapter.ViewModel> {
 

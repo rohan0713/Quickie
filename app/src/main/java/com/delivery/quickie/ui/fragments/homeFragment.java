@@ -1,11 +1,10 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.fragments;
 
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,14 +18,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.delivery.quickie.utils.DotsIndicatorDecoration;
+import com.delivery.quickie.R;
+import com.delivery.quickie.network.Retrofit;
 import com.delivery.quickie.databinding.FragmentHomeBinding;
 import com.delivery.quickie.room.Repository;
 import com.delivery.quickie.room.foodViewModel;
-import com.delivery.quickie.room.food_items;
-import com.delivery.quickie.room.response;
+import com.delivery.quickie.data.food_items;
+import com.delivery.quickie.data.response;
+import com.delivery.quickie.ui.adapters.foodAdapter;
+import com.delivery.quickie.ui.adapters.offerAdapter;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,14 +46,14 @@ public class homeFragment extends Fragment {
 
     private static Repository repository;
     private static foodViewModel viewModel; 
-    private foodAdapter foodAdapter;
+    private com.delivery.quickie.ui.adapters.foodAdapter foodAdapter;
 
     View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home ,container,
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home ,container,
                 false);
         view = binding.getRoot();
 

@@ -1,4 +1,4 @@
-package com.delivery.quickie.room;
+package com.delivery.quickie.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.delivery.quickie.R;
+import com.delivery.quickie.data.cuisine;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class cuisineAdapter extends RecyclerView.Adapter<cuisineAdapter.Viewmode
 
     @Override
     public int getItemCount() {
-        return list.size()/2;
+        return list.size() / 2;
     }
 
     public static class Viewmodel extends RecyclerView.ViewHolder {

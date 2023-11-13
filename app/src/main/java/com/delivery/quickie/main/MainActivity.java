@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
+
+import com.delivery.quickie.R;
+import com.delivery.quickie.ui.activities.home;
 
 public class MainActivity extends AppCompatActivity {
 

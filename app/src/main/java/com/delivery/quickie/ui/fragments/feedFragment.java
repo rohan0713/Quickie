@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.fragments;
 
 import android.os.Bundle;
 
@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.delivery.quickie.R;
 import com.delivery.quickie.databinding.FragmentFeedBinding;
+import com.delivery.quickie.ui.adapters.feedAdapter;
 
 public class feedFragment extends Fragment {
 

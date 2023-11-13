@@ -1,4 +1,4 @@
-package com.delivery.quickie.room;
+package com.delivery.quickie.data;
 
 import java.util.List;
 

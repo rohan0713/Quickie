@@ -7,11 +7,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".exploreFragment" >
+        tools:context=".ui.fragments.exploreFragment" >
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,91 +27,27 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="Hello! Rohan"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/pin"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="16dp"
-                        android:src="@drawable/pin"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/name"
-                        app:tint="#F11B0C" />
-
-                    <TextView
-                        android:id="@+id/location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="New Delhi, India"
-                        android:textColor="#858585"
-                        android:textSize="13sp"
-                        app:layout_constraintStart_toEndOf="@id/pin"
-                        app:layout_constraintTop_toBottomOf="@id/name" />
-
-                    <LinearLayout
-                        android:id="@+id/layout1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pin">
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="40dp"
-                            android:layout_weight="4"
-                            android:background="@drawable/edittext_background"
-                            android:hint="Search food, groceries and restaurants"
-                            android:padding="10dp"
-                            android:textSize="12sp" />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="15dp"
-                            android:backgroundTint="@color/button"
-                            android:text="Search"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-
-                    <TextView
                         android:id="@+id/select"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="Select from your favourite cuisines"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:fontFamily="@font/roboto_medium"
-                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toTopOf="@+id/cuisine_recyclerview"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/layout1" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/cuisine_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
+                        tools:listitem="@layout/cuisine"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/select" />
 
@@ -121,10 +58,10 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:visibility="gone"
-                        app:cornerRadius="10dp"
                         android:backgroundTint="@color/button"
                         android:text="Check out more cuisines"
+                        android:visibility="gone"
+                        app:cornerRadius="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cuisine_recyclerview" />
@@ -133,7 +70,7 @@
             </LinearLayout>
 
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
 

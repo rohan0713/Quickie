@@ -1,4 +1,4 @@
-package com.delivery.quickie;
+package com.delivery.quickie.ui.fragments;
 
 import android.os.Bundle;
 
@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.delivery.quickie.R;
+import com.delivery.quickie.network.Retrofit;
 import com.delivery.quickie.databinding.FragmentExploreBinding;
-import com.delivery.quickie.room.cResponse;
-import com.delivery.quickie.room.cuisine;
-import com.delivery.quickie.room.cuisineAdapter;
+import com.delivery.quickie.data.cResponse;
+import com.delivery.quickie.data.cuisine;
+import com.delivery.quickie.ui.adapters.cuisineAdapter;
 
 import java.util.List;
 
