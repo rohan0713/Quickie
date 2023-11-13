@@ -57,9 +57,15 @@ public class homeFragment extends Fragment {
                 false);
         view = binding.getRoot();
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(),
+                LinearLayoutManager.HORIZONTAL, false);
         binding.recyclerview.setLayoutManager(layoutManager);
-        offerAdapter adapter = new offerAdapter();
+
+        List<Integer> offerList = new ArrayList<>();
+        offerList.add(R.drawable.ic_offer1);
+        offerList.add(R.drawable.ic_offer2);
+        offerList.add(R.drawable.ic_offer3);
+        offerAdapter adapter = new offerAdapter(offerList);
         binding.recyclerview.setAdapter(adapter);
 
         //for dots indicator
@@ -79,7 +85,8 @@ public class homeFragment extends Fragment {
             @Override
             public void run() {
                 if (layoutManager.findLastVisibleItemPosition() < (adapter.getItemCount() - 1)){
-                    layoutManager.smoothScrollToPosition(binding.recyclerview, new RecyclerView.State(), layoutManager.findLastCompletelyVisibleItemPosition() + 1);
+                    layoutManager.smoothScrollToPosition(binding.recyclerview, new RecyclerView.State(),
+                            layoutManager.findLastCompletelyVisibleItemPosition() + 1);
                 }else{
                     layoutManager.smoothScrollToPosition(binding.recyclerview, new RecyclerView.State(), 0);
                 }

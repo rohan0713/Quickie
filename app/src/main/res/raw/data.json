@@ -1,0 +1,116 @@
+{
+  "posts" : [
+    {
+      "username": "Desifoodie",
+      "location": "Noida",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 158,
+      "caption": "Instant energy drink recipe",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "nytcooking",
+      "location": "Italy",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 10684,
+      "caption": "This year for Thanksgiving, maybe skip the pie",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "foodykna",
+      "location": "Bhiwadi, India",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 12271,
+      "caption": "Make the best veg spring rolls just like your favorite chinese restaurant or cafe",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "food_finaliity",
+      "location": "New york",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 11664,
+      "caption": "Rate this out of 10",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "fastfoodieworld",
+      "location": "Saket, India",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 30703,
+      "caption": "Would you love to try this?",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "foodypopz",
+      "location": "Rajasthan, India",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 1421,
+      "caption": "Definitely save this one to try",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "eathealthytoday",
+      "location": "Jodhpur",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 61083,
+      "caption": "Recipes is in the comment section below",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    },
+    {
+      "username": "munchymoment",
+      "location": "Bayern, Germany",
+      "postImg": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2016%2F02%2F03%2Fstrawberry-shortcake-shake-mr-2000.jpg",
+      "likes": 1448,
+      "caption": "fulfilling food cravings",
+      "comments": [
+        {
+          "name": "rick",
+          "comment": "nice work"
+        }
+      ],
+      "userImg": ""
+    }
+  ]
+}

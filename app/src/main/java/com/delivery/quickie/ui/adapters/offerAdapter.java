@@ -3,16 +3,19 @@ package com.delivery.quickie.ui.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.delivery.quickie.R;
 
+import java.util.List;
+
 public class offerAdapter extends RecyclerView.Adapter<offerAdapter.ViewModel> {
-
-    public offerAdapter(){
-
+    List<Integer> list;
+    public offerAdapter(List<Integer> list){
+        this.list = list;
     }
 
     @NonNull
@@ -24,16 +27,22 @@ public class offerAdapter extends RecyclerView.Adapter<offerAdapter.ViewModel> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewModel holder, int position) {
+        holder.bind(list.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     public class ViewModel extends RecyclerView.ViewHolder {
         public ViewModel(@NonNull View itemView) {
             super(itemView);
+        }
+
+        public void bind(Integer integer) {
+            ImageView ivOffer = itemView.findViewById(R.id.offer_image);
+            ivOffer.setBackgroundResource(integer);
         }
     }
 }

@@ -9,12 +9,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.delivery.quickie.R;
+import com.delivery.quickie.data.PostsResponse;
 import com.delivery.quickie.databinding.ActivityHomeBinding;
+import com.delivery.quickie.network.RetrofitClient;
 import com.delivery.quickie.ui.fragments.exploreFragment;
 import com.delivery.quickie.ui.fragments.feedFragment;
 import com.delivery.quickie.ui.fragments.homeFragment;
 import com.delivery.quickie.ui.fragments.profileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import retrofit2.Response;
 
 public class home extends AppCompatActivity {
 

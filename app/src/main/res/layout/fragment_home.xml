@@ -45,7 +45,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:src="@drawable/notification"
+                android:src="@drawable/ic_cart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
                         android:fontFamily="@font/roboto_medium"
                         android:text="Hello! Rohan"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -156,21 +156,19 @@
                             android:layout_margin="16dp"
                             android:layout_weight="1">
 
-                            <RelativeLayout
+                            <ImageView
                                 android:id="@+id/food"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
-                                android:background="@drawable/layout_background">
+                                android:src="@drawable/burger">
 
-
-                            </RelativeLayout>
+                            </ImageView>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/food"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
                                 android:fontFamily="@font/roboto_medium"
                                 android:text="Food"
                                 android:textColor="@color/black"
@@ -184,23 +182,22 @@
                             android:layout_margin="16dp"
                             android:layout_weight="1">
 
-                            <RelativeLayout
+                            <ImageView
                                 android:id="@+id/groceries"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
-                                android:background="@drawable/layout_background">
+                                android:src="@drawable/ic_grocery"
+                                >
 
-
-                            </RelativeLayout>
+                            </ImageView>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/groceries"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
                                 android:fontFamily="@font/roboto_medium"
-                                android:text="Groceries"
+                                android:text="Grocery"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                         </RelativeLayout>
@@ -211,21 +208,18 @@
                             android:layout_margin="16dp"
                             android:layout_weight="1">
 
-                            <RelativeLayout
+                            <ImageView
                                 android:id="@+id/genie"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
-                                android:background="@drawable/layout_background">
-
-
-                            </RelativeLayout>
+                                android:src="@drawable/ic_delivery">
+                            </ImageView>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/genie"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginTop="10dp"
                                 android:fontFamily="@font/roboto_medium"
                                 android:text="Genie"
                                 android:textColor="@color/black"
@@ -302,13 +296,16 @@
 
                         <TextView
                             android:id="@+id/mind"
-                            android:text="Rohan, What's in your mind?"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/roboto_medium"
-                            android:layout_margin="16dp"
-                            android:textSize="16sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Cuisine of the day - Indian"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/food_recyclerview"
