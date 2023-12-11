@@ -1,5 +1,6 @@
 package com.delivery.quickie.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.delivery.quickie.ui.activities.CartActivity;
 import com.delivery.quickie.utils.DotsIndicatorDecoration;
 import com.delivery.quickie.R;
 import com.delivery.quickie.network.Retrofit;
@@ -67,6 +69,14 @@ public class homeFragment extends Fragment {
         offerList.add(R.drawable.ic_offer3);
         offerAdapter adapter = new offerAdapter(offerList);
         binding.recyclerview.setAdapter(adapter);
+
+        binding.ivCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =new Intent(v.getContext(), CartActivity.class);
+                startActivity(i);
+            }
+        });
 
         //for dots indicator
         final int radius = getResources().getDimensionPixelSize(R.dimen.radius);

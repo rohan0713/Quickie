@@ -47,9 +47,10 @@ public class exploreFragment extends Fragment {
         call.enqueue(new Callback<cResponse>() {
             @Override
             public void onResponse(Call<cResponse> call, Response<cResponse> response) {
+                binding.progressBar.setVisibility(View.GONE);
                 List<cuisine> list = response.body().getMeals();
                 binding.cuisineRecyclerview.setAdapter(new cuisineAdapter(list));
-                binding.more.setVisibility(View.VISIBLE);
+//                binding.more.setVisibility(View.VISIBLE);
             }
 
             @Override

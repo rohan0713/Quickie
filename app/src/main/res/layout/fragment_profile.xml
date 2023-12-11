@@ -31,7 +31,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="jetsetgooooo"
+                    android:text="harrysmith"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -77,7 +77,7 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:padding="3dp"
-                    android:src="@color/button"
+                    android:src="@color/base"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
                 <LinearLayout
@@ -177,7 +177,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Rohan Ramola"
+                    android:text="Harry smith"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -194,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Writing Code, Crafting Content"
+                    android:text="Crafting Content"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -235,9 +235,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/scrollview"
-        app:tabIndicatorColor="@color/button"
+        app:tabIndicatorColor="@color/base"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/button"
+        app:tabSelectedTextColor="@color/base"
         app:tabTextColor="@color/black">
 
 

@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvFood"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/food_item"
                 android:layout_centerHorizontal="true"
-                android:background="@color/button"
+                android:background="@color/base"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Burgers"

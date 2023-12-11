@@ -1,5 +1,6 @@
 package com.delivery.quickie.ui.adapters;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.delivery.quickie.R;
 import com.delivery.quickie.data.food_items;
+import com.delivery.quickie.ui.activities.CartActivity;
+import com.delivery.quickie.ui.activities.DetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -53,6 +56,15 @@ public class foodAdapter extends RecyclerView.Adapter<foodAdapter.Viewholder> {
             String url = food_items.strMealThumb.replaceAll("\\\\", "");
             Log.d("url", url);
             Picasso.get().load(url).placeholder(R.drawable.burger).fit().into(food_image);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i =new Intent(v.getContext(), DetailsActivity.class);
+                    i.putExtra("url", url);
+                    i.putExtra("title", food_items.strMeal);
+                    v.getContext().startActivity(i);
+                }
+            });
 
         }
     }

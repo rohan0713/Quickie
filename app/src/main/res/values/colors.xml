@@ -15,7 +15,7 @@
     <color name="borderColor2">#DBDFAA</color>
     <color name="textColor2">#808080</color>
     <color name="boxes">#E7E6E7</color>
-    <color name="button">#4CAF50</color>
+    <color name="base">#4CAF50</color>
     <color name="material">#0353F0</color>
     <color name="student">#F5F9FE</color>
     <color name="card">#FBFBFC</color>

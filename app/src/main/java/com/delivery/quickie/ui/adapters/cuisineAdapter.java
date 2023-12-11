@@ -1,5 +1,6 @@
 package com.delivery.quickie.ui.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.delivery.quickie.R;
 import com.delivery.quickie.data.cuisine;
+import com.delivery.quickie.ui.activities.FoodListActivity;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -34,7 +36,7 @@ public class cuisineAdapter extends RecyclerView.Adapter<cuisineAdapter.Viewmode
 
     @Override
     public int getItemCount() {
-        return list.size() / 2;
+        return list.size();
     }
 
     public static class Viewmodel extends RecyclerView.ViewHolder {
@@ -46,6 +48,15 @@ public class cuisineAdapter extends RecyclerView.Adapter<cuisineAdapter.Viewmode
 
             MaterialButton button = itemView.findViewById(R.id.cuisine);
             button.setText(cuisine.strArea);
+
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(), FoodListActivity.class);
+                    i.putExtra("cuisine", cuisine.strArea);
+                    v.getContext().startActivity(i);
+                }
+            });
         }
     }
 }
