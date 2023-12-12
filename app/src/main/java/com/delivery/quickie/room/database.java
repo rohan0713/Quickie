@@ -9,9 +9,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.delivery.quickie.data.CartItems;
 import com.delivery.quickie.data.food_items;
 
-@Database(entities = {food_items.class}, version = 2, exportSchema = false)
+@Database(entities = {food_items.class, CartItems.class}, version = 3, exportSchema = false)
 public abstract class database extends RoomDatabase {
 
     public abstract foodDao foodDao();
