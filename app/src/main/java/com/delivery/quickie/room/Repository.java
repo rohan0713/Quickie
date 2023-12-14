@@ -84,14 +84,12 @@ public class Repository {
         foodDatabase.foodDao().deleteZeroQuantity();
     }
 
-    public LiveData<List<CartItems>> findCartItems(String name){
-        LiveData<List<CartItems>> list = foodDatabase.foodDao().findItemInCart(name);
-        Log.d("invoked", list.toString());
-        return list;
+    public CartItems findCartItems(String name){
+        return foodDatabase.foodDao().findItemInCart(name);
     }
 
     public void add(String name){
-        foodDatabase.foodDao().add(name);
+        executor.execute(() -> foodDatabase.foodDao().add(name));
     }
 
 }

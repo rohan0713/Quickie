@@ -17,10 +17,15 @@ val viewmodel: foodViewModel
         fun bind(cartItems: CartItems) {
             binding.tvFoodName.text = cartItems.foodName
             binding.tvQuantity.text = cartItems.quantity.toString()
-            binding.tvAmount.text = cartItems.amount.toString()
+            binding.tvAmount.text = "₹ ${cartItems.amount * cartItems.quantity}"
 
             binding.tvDecreaseCount.setOnClickListener {
-                viewmodel.deleteFromCart(cartItems)
+                viewmodel.remove(cartItems.foodName)
+                viewmodel.deleteZeros()
+            }
+
+            binding.tvIncreaseCount.setOnClickListener {
+                viewmodel.add(cartItems.foodName)
             }
         }
     }

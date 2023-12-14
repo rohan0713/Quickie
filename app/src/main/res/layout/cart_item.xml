@@ -25,18 +25,17 @@
             <TextView
                 android:id="@+id/tvFoodName"
                 android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
                 android:text="Food Cooking"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                />
 
             <LinearLayout
                 android:layout_width="80dp"
                 android:layout_marginEnd="20dp"
-                android:layout_toStartOf="@id/tvAmount"
-                android:background="@drawable/layout_background"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/shape"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -84,11 +83,12 @@
                 android:id="@+id/tvAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:text="₹ 150"
-                android:layout_marginTop="4dp"
+                android:layout_below="@id/tvFoodName"
+                android:layout_marginTop="3dp"
                 android:layout_marginEnd="20dp"
-                android:textSize="16sp"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:textColor="@color/black" />
 
         </RelativeLayout>

@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.delivery.quickie.R
 import com.delivery.quickie.databinding.ActivityCartBinding
 import com.delivery.quickie.room.foodViewModel
 import com.delivery.quickie.ui.adapters.CartAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CartActivity : AppCompatActivity() {
 
@@ -39,6 +42,12 @@ class CartActivity : AppCompatActivity() {
                 finish()
             }
             finish()
+        }
+
+        viewModel.totalAmount.observe(this) {
+            it?.let {
+                binding.tvTotalAmount.text = "₹ ${it.toString()}"
+            }
         }
     }
 }

@@ -13,12 +13,15 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import com.delivery.quickie.R
 import com.delivery.quickie.data.CartItems
 import com.delivery.quickie.databinding.ActivityDetailsBinding
 import com.delivery.quickie.room.Repository
 import com.delivery.quickie.room.foodViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -50,32 +53,34 @@ class DetailsActivity : AppCompatActivity() {
             }
         }
 
+        viewmodel.getQuantity(title).observe(this) {
+            it?.let {
+                binding.tvCount.text = it.toString()
+            }
+        }
+
         binding.tvIncreaseCount.setOnClickListener {
             updateCountWithSlideAnimation(1)
-            val list = viewmodel.findItem(title).value
-            Log.d("invoked", list.toString())
-
-            if (list != null) {
-                    if (list.size > 0) {
-                        viewmodel.add(title)
-                        Log.d("invoked", "add function")
-                    }
+            Log.d("invoked", title.toString())
+            lifecycleScope.launch(Dispatchers.IO) {
+                val item = viewmodel.findItem(title)
+                if (item != null) {
+                    viewmodel.add(title)
+                    Log.d("invoked", "add function")
                 } else {
                     viewmodel.insertIntoCart(
                         CartItems(
                             title!!,
-                            binding.tvCount.text.toString().toInt(),
+                            binding.tvCount.text.toString().toInt() + 1,
                             "200".toInt()
                         )
                     )
                     Log.d("invoked", "insert function")
                 }
+            }
         }
 
         binding.tvDecreaseCount.setOnClickListener {
-
-            binding.tvCount.text = viewmodel.getQuantity(title).toString()
-
             if (binding.tvCount.text.toString().toInt() > 0) {
                 updateCountWithSlideAnimation(-1)
                 viewmodel.remove(title.toString())

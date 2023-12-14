@@ -31,7 +31,7 @@ public interface foodDao {
     @Query("Select * from cart")
     LiveData<List<CartItems>> getCartItems();
 
-    @Query("Select SUM(amount) from cart")
+    @Query("Select SUM(amount * quantity) from cart")
     LiveData<Integer> getTotalAmount();
     @Query("Select quantity from cart where foodName = :foodName")
     LiveData<Integer> getItemCount(String foodName);
@@ -42,6 +42,6 @@ public interface foodDao {
     @Query("Delete from cart where quantity = 0")
     void deleteZeroQuantity();
     @Query("Select * from cart where foodName = :foodName")
-    LiveData<List<CartItems>> findItemInCart(String foodName);
+    CartItems findItemInCart(String foodName);
 
 }

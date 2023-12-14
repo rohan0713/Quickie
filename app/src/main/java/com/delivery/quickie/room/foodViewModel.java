@@ -34,7 +34,7 @@ public class foodViewModel extends AndroidViewModel {
     }
 
     // Cart Implementation
-    public LiveData<List<CartItems>> getCartItems(){ return cartItems;}
+    public LiveData<List<CartItems>> getCartItems(){ return cartItems; }
 
     public void insertIntoCart(CartItems item){
         repository.insertIntoCart(item);
@@ -60,7 +60,7 @@ public class foodViewModel extends AndroidViewModel {
         executor.execute(repository::deleteZeroQuantity);
     }
 
-    public LiveData<List<CartItems>> findItem(String name){
+    public CartItems findItem(String name){
         return repository.findCartItems(name);
     }
 

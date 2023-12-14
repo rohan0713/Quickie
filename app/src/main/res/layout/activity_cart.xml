@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#EFEFEE"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.activities.CartActivity">
 
     <androidx.core.widget.NestedScrollView
@@ -48,9 +48,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_toEndOf="@id/ivBack"
-                        android:textColor="@color/black"
                         android:text="Your Cart"
-                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
@@ -59,7 +59,7 @@
                     android:id="@+id/rlCartItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EFEFEE"
+                    android:background="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rlHeader">
@@ -72,7 +72,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
                         android:elevation="10dp"
-                        app:cardCornerRadius="20dp">
+                        app:cardCornerRadius="10dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -82,25 +82,24 @@
                                 android:id="@+id/rvServices"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                tools:listitem="@layout/cart_item"
-                                android:visibility="gone"
-                                tools:itemCount="5"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp" />
+                                android:layout_marginBottom="10dp"
+                                android:visibility="gone"
+                                tools:itemCount="5"
+                                tools:listitem="@layout/cart_item" />
 
                             <TextView
                                 android:id="@+id/tvItems"
-                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/rvServices"
-                                android:text="No items in cart"
-                                android:gravity="center"
                                 android:layout_marginTop="15dp"
+                                android:gravity="center"
+                                android:text="No items in cart"
                                 android:textColor="#B1B1B1"
-                                />
+                                android:visibility="gone" />
 
                             <RelativeLayout
                                 android:id="@+id/rlBorder"
@@ -113,13 +112,14 @@
                             <RelativeLayout
                                 android:id="@+id/layoutBookMore"
                                 android:layout_width="match_parent"
-                                android:layout_below="@id/rlBorder"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/rlBorder">
 
                                 <TextView
                                     android:id="@+id/tvBookMore"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
                                     android:layout_marginEnd="15dp"
@@ -127,16 +127,16 @@
                                     android:text="Add more items"
                                     android:textStyle="bold" />
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="15dp"
-                                    android:layout_marginEnd="15dp"
-                                    android:layout_marginBottom="15dp"
-                                    android:src="@drawable/add"
-                                    app:tint="@color/base" />
+                                <!--                                <ImageView-->
+                                <!--                                    android:layout_width="wrap_content"-->
+                                <!--                                    android:layout_height="wrap_content"-->
+                                <!--                                    android:layout_alignParentEnd="true"-->
+                                <!--                                    android:layout_marginStart="15dp"-->
+                                <!--                                    android:layout_marginTop="15dp"-->
+                                <!--                                    android:layout_marginEnd="15dp"-->
+                                <!--                                    android:layout_marginBottom="15dp"-->
+                                <!--                                    android:src="@drawable/add"-->
+                                <!--                                    app:tint="@color/base" />-->
 
                             </RelativeLayout>
 
@@ -148,7 +148,6 @@
 
                 <RelativeLayout
                     android:id="@+id/rlOffers"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -162,200 +161,106 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
-                        android:text="Offers &amp; Benefits"
+                        android:text="Gift card or discount code"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvOffers"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:cardCornerRadius="20dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/tvCoupons"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="15dp"
-                                android:text="CLEANIT10"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tvApplyCoupon"
-                                android:clickable="true"
-                                android:background="?attr/selectableItemBackground"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_toStartOf="@id/ivRemoveCoupon"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:text="Apply"
-                                android:textColor="@color/base"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:focusable="true" />
-
-                            <ImageView
-                                android:id="@+id/ivRemoveCoupon"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_delete"
-                                app:tint="@color/base"
-                                android:visibility="invisible"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="13dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"/>
-
-                            <RelativeLayout
-                                android:id="@+id/rlBorder4"
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_below="@id/tvCoupons"
-                                android:background="#ECEDED" />
-
-                            <TextView
-                                android:id="@+id/tvViewMoreCoupons"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/rlBorder4"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:gravity="center"
-                                android:text="View more coupons"
-                                android:textSize="13sp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp">
 
 
-                        </RelativeLayout>
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="15dp"
+                            android:hint="Enter a code"
+                            android:padding="10dp"
+                            android:textSize="15sp"
+                            android:background="@drawable/edittext_background"
+                            android:layout_weight="3" />
 
-                    </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/base"
+                            android:text="Apply"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
 
                 </RelativeLayout>
 
                 <RelativeLayout
-                    app:layout_constraintTop_toBottomOf="@id/rlOffers"
+                    android:id="@+id/layoutBill"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlOffers">
 
                     <TextView
                         android:id="@+id/tvDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Detailed Bill"
-                        android:layout_marginTop="20dp"
-                        android:textSize="16sp"
                         android:layout_marginStart="25dp"
-                        android:textStyle="bold"
-                        />
+                        android:layout_marginTop="20dp"
+                        android:text="Total"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tvDelivery"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvDetails"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:cardCornerRadius="20dp">
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Including ₹200 for delivery"
+                        android:textSize="14sp" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="15dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Item Total" />
-
-                            <TextView
-                                android:id="@+id/tvTotal"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:text="₹0"
-                                android:textStyle="bold" />
-
-                            <RelativeLayout
-                                android:id="@+id/rlBorder3"
-                                android:layout_width="match_parent"
-                                android:layout_height="2dp"
-                                android:layout_below="@id/tvTotal"
-                                android:layout_marginTop="15dp"
-                                android:background="#ECEDED" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/rlBorder3"
-                                android:layout_marginTop="10dp"
-                                android:text="To Pay"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tvToPay"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/rlBorder3"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginTop="10dp"
-                                android:text="₹0"
-                                android:textColor="@color/base"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tvTotalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvDetails"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="25dp"
+                        android:text="₹ 8000"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
+
+                <Button
+                    android:id="@+id/tvCheckout"
+                    app:layout_constraintTop_toBottomOf="@id/layoutBill"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/base"
+                    android:text="Checkout now" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/tvTotalAmount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_weight="1"
-            android:text="Total Amount:\n₹0"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="2"
-            android:backgroundTint="@color/base"
-            android:text="Confirm to Pay" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
