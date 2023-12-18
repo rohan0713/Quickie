@@ -25,6 +25,24 @@ class RetrofitClient {
                 .build()
         }
 
+        private val db: Retrofit by lazy {
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+            val client = OkHttpClient.Builder().addInterceptor(loggingInterceptor)
+                .build()
+
+            Retrofit.Builder()
+                .baseUrl(Constants.dbUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+        }
+
+        val dbApi: ApiService by lazy {
+            db.create(ApiService::class.java)
+        }
+
         val api: Posts by lazy {
             retrofit.create(Posts::class.java)
         }

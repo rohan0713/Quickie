@@ -7,5 +7,9 @@ class Constants {
         val url by lazy {
             "https://quickie.free.beeceptor.com"
         }
+
+        val dbUrl by lazy {
+            "https://quickie-backend.vercel.app/"
+        }
     }
 }

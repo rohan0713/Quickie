@@ -76,6 +76,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
+                    android:scaleType="centerCrop"
                     android:padding="3dp"
                     android:src="@color/base"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
@@ -216,12 +217,13 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogOut"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/borderColor"
-                    android:text="Share Profile"
+                    android:text="Log Out"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
