@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -20,11 +22,15 @@ import androidx.fragment.app.Fragment;
 import com.delivery.quickie.R;
 import com.delivery.quickie.databinding.ActivityHomeBinding;
 import com.delivery.quickie.network.ImageResponse;
+import com.delivery.quickie.network.ProfileResponse;
 import com.delivery.quickie.network.RetrofitClient;
+import com.delivery.quickie.ui.adapters.postAdapter;
 import com.delivery.quickie.ui.fragments.exploreFragment;
 import com.delivery.quickie.ui.fragments.feedFragment;
 import com.delivery.quickie.ui.fragments.homeFragment;
 import com.delivery.quickie.ui.fragments.profileFragment;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 
@@ -52,6 +58,8 @@ public class home extends AppCompatActivity {
         }
 
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+
+        getProfileData();
 
         binding.navMenu.setBackground(null);
         binding.navMenu.getMenu().getItem(2).setEnabled(false);
@@ -82,6 +90,40 @@ public class home extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void getProfileData() {
+
+        String email = sharedPreferences.getString("email", "");
+        try {
+            Call<ProfileResponse> res = RetrofitClient.Companion.getDbApi().getProfile(email.toString());
+            res.enqueue(new Callback<ProfileResponse>() {
+                @Override
+                public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                    if (response.isSuccessful()) {
+                        senData(response.body());
+                    } else {
+                        Toast.makeText(home.this, "Response Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                    Toast.makeText(home.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        } catch (Exception e) {
+            Log.e("error", e.getMessage());
+            new Handler(Looper.getMainLooper()).post(() -> {
+                Toast.makeText(home.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        }
+
+    }
+
+    private void senData(ProfileResponse response){
+        EventBus.getDefault().postSticky(response);
     }
 
     private void openGallery() {

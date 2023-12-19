@@ -25,13 +25,13 @@
                 android:layout_height="70dp">
 
                 <TextView
-                    android:id="@+id/username"
+                    android:id="@+id/tvUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="harrysmith"
+                    tools:text="harrysmith"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
 
@@ -41,28 +41,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="5dp"
-                    android:layout_toEndOf="@id/username"
+                    android:layout_toEndOf="@id/tvUser"
                     android:src="@drawable/down_key"
-                    app:tint="@color/black" />
-
-                <ImageView
-                    android:id="@+id/menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/menu"
-                    app:tint="@color/black" />
-
-                <ImageView
-                    android:id="@+id/add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="20dp"
-                    android:layout_toStartOf="@id/menu"
-                    android:src="@drawable/add_post"
                     app:tint="@color/black" />
 
             </RelativeLayout>
@@ -78,7 +58,7 @@
                     android:layout_marginStart="20dp"
                     android:scaleType="centerCrop"
                     android:padding="3dp"
-                    android:src="@color/base"
+                    android:src="@drawable/ic_placeholder"
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
                 <LinearLayout
@@ -91,11 +71,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvFollowing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center"
-                        android:text="87"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -119,11 +100,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvFollowers"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center"
-                        android:text="52"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -147,11 +129,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvPosts"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center"
-                        android:text="25"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -172,17 +155,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Harry smith"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
 
                 <TextView
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"

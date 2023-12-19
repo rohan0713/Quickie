@@ -22,6 +22,10 @@ import com.delivery.quickie.network.RetrofitClient;
 import com.delivery.quickie.ui.adapters.postAdapter;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -32,46 +36,41 @@ import retrofit2.Response;
 public class postFragment extends Fragment {
 
     SharedPreferences sharedPreferences;
+    RecyclerView recyclerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_post, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
+        recyclerView = view.findViewById(R.id.recyclerview);
 
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,
                 StaggeredGridLayoutManager.VERTICAL));
 
-        sharedPreferences = requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
-        String email = sharedPreferences.getString("email", "");
-        Log.d("email", email.toString());
-
-            try {
-                Call<ProfileResponse> res = RetrofitClient.Companion.getDbApi().getProfile(email.toString());
-                res.enqueue(new Callback<ProfileResponse>() {
-                    @Override
-                    public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                        if (response.isSuccessful()) {
-                            recyclerView.setAdapter(new postAdapter(response.body().getPosts()));
-                        } else {
-                            Toast.makeText(view.getContext(), "Error", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                        Toast.makeText(view.getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-            } catch (Exception e) {
-                Log.e("error", e.getMessage());
-                new Handler(Looper.getMainLooper()).post(() -> {
-                    Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-            }
-
         return view;
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.ASYNC, sticky = true)
+    public void getData(ProfileResponse response) {
+        if (response.getPosts() != null) {
+            recyclerView.setAdapter(new postAdapter(response.getPosts()));
+        }
+    }
+
 }

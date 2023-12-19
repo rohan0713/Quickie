@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delivery.quickie.R;
@@ -25,6 +26,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -38,6 +43,24 @@ public class profileFragment extends Fragment {
     ViewPager2 viewPager;
     TabLayout tabLayout;
     ShapeableImageView profile;
+    SharedPreferences sharedPreferences;
+    TextView username;
+    TextView user;
+    TextView postCount;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +71,13 @@ public class profileFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
         profile = view.findViewById(R.id.profilePhoto);
         MaterialButton logOut = view.findViewById(R.id.btnLogOut);
+        username = view.findViewById(R.id.tvUser);
+        postCount = view.findViewById(R.id.tvPosts);
+
+        sharedPreferences = requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String profileData = sharedPreferences.getString("profile", "");
+        Picasso.get().load("https://quickie-backend.vercel.app/api/images/profile/" + profileData)
+                .placeholder(R.drawable.ic_placeholder).into(profile);
 
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.posts));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.reels));
@@ -87,6 +117,8 @@ public class profileFragment extends Fragment {
                 SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
+                editor.apply();
+
                 Intent i = new Intent(view.getContext(), LoginActivity.class);
                 startActivity(i);
                 requireActivity().finish();
@@ -95,6 +127,12 @@ public class profileFragment extends Fragment {
 
         return view;
 
-
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void getData(ProfileResponse response){
+        username.setText(response.getUsername());
+        if(response.getPosts() != null){
+            postCount.setText(String.valueOf(response.getPosts().size()));
+        }
     }
 }

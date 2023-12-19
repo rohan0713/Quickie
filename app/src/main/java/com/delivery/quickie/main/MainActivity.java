@@ -11,6 +11,7 @@ import android.view.WindowManager;
 
 import com.delivery.quickie.R;
 import com.delivery.quickie.ui.activities.LoginActivity;
+import com.delivery.quickie.ui.activities.ProfileActivity;
 import com.delivery.quickie.ui.activities.home;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,12 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         Boolean access = sharedPreferences.getBoolean("access", false);
+        Boolean upload = sharedPreferences.getBoolean("upload", false);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                if(access){
+                if(access && upload){
                     Intent i = new Intent(MainActivity.this, home.class);
                     startActivity(i);
                     finish();

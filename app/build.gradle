@@ -61,4 +61,9 @@ dependencies {
 
     //lifecycle Scope dependency
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+
+    // Glide library
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    implementation 'org.greenrobot:eventbus:3.2.0'
 }

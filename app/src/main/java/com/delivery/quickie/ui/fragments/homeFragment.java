@@ -136,6 +136,5 @@ public class homeFragment extends Fragment {
                 Toast.makeText(view.getContext(), "No Internet", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }
