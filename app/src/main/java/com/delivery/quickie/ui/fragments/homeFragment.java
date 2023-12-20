@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.delivery.quickie.ui.activities.CartActivity;
+import com.delivery.quickie.ui.activities.MembershipActivity;
 import com.delivery.quickie.utils.DotsIndicatorDecoration;
 import com.delivery.quickie.R;
 import com.delivery.quickie.network.Retrofit;
@@ -115,6 +117,15 @@ public class homeFragment extends Fragment {
             public void onChanged(List<food_items> list) {
                 binding.foodRecyclerview.setAdapter(foodAdapter);
                 foodAdapter.getList(list);
+            }
+        });
+
+        Button plan = view.findViewById(R.id.btnPlan);
+        plan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MembershipActivity.class);
+                startActivity(i);
             }
         });
         return view;

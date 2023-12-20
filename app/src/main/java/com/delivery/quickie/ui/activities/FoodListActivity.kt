@@ -44,5 +44,9 @@ class FoodListActivity : AppCompatActivity() {
             }
 
         })
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 }

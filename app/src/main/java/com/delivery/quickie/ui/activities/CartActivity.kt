@@ -49,5 +49,42 @@ class CartActivity : AppCompatActivity() {
                 binding.tvTotalAmount.text = "₹ ${it.toString()}"
             }
         }
+
+        binding.btnCheckout.setOnClickListener {
+            Intent(this@CartActivity, ConfirmationActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
+
+        binding.btnApply.setOnClickListener {
+
+            if(binding.etCode.text != null){
+
+                val code = binding.etCode.text.toString()
+                val validCode = "quick10"
+
+                if(code.equals(validCode, ignoreCase = true)){
+                    binding.tvDiscount.text = "10% Discount applied"
+                    binding.tvDiscount.setTextColor(resources.getColor(R.color.base))
+                    binding.tvDiscount.visibility = View.VISIBLE
+
+                    viewModel.totalAmount.observe(this) {
+                        it?.let {
+                            val amount = it.minus(it * 0.1)
+                            binding.tvTotalAmount.text = "₹ ${amount.toString()}"
+                        }
+                    }
+
+                }else{
+                    binding.tvDiscount.text = "invalid code"
+                    binding.tvDiscount.setTextColor(resources.getColor(R.color.invalid))
+                    binding.tvDiscount.visibility = View.VISIBLE
+                }
+            }
+        }
     }
 }
